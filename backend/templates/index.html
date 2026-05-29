@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>DreamHome AI</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            DreamHome AI
+
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="/">Home</a>
+            </li>
+
+            <li>
+                <a href="#prediction">Prediction</a>
+            </li>
+
+            <li>
+                <a href="#properties">Properties</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Find Your Dream Property
+            </h1>
+
+            <p>
+                AI Powered House Price Prediction Platform
+            </p>
+
+            <button>
+                Explore Properties
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- PREDICTION FORM -->
+
+    <section
+        class="prediction-section"
+        id="prediction"
+    >
+
+        <div class="prediction-card">
+
+            <h1>
+                House Price Prediction
+            </h1>
+
+            <form
+                action="/predict"
+                method="post"
+            >
+
+                <!-- LOCATION -->
+
+                <label>
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Location
+
+                </label>
+
+                <select
+                    name="location"
+                    required
+                >
+
+                    <option>Vizag</option>
+
+                    <option>Hyderabad</option>
+
+                    <option>Bangalore</option>
+
+                    <option>Chennai</option>
+
+                    <option>Mumbai</option>
+
+                    <option>Delhi</option>
+
+                    <option>Pune</option>
+
+                    <option>Kolkata</option>
+
+                </select>
+
+                <!-- AREA -->
+
+                <label>
+
+                    <i class="fa-solid fa-ruler-combined"></i>
+
+                    Area Size (sq.ft)
+
+                </label>
+
+                <input
+                    type="number"
+                    name="area"
+                    placeholder="Enter area size"
+                    required
+                >
+
+                <!-- ROOMS -->
+
+                <label>
+
+                    <i class="fa-solid fa-bed"></i>
+
+                    Number of Rooms
+
+                </label>
+
+                <input
+                    type="number"
+                    name="rooms"
+                    placeholder="Enter number of rooms"
+                    required
+                >
+
+                <!-- SCHOOL -->
+
+                <label>
+
+                    <i class="fa-solid fa-school"></i>
+
+                    Near School
+
+                </label>
+
+                <select name="school">
+
+                    <option value="1">
+                        Yes
+                    </option>
+
+                    <option value="0">
+                        No
+                    </option>
+
+                </select>
+
+                <!-- HOSPITAL -->
+
+                <label>
+
+                    <i class="fa-solid fa-hospital"></i>
+
+                    Near Hospital
+
+                </label>
+
+                <select name="hospital">
+
+                    <option value="1">
+                        Yes
+                    </option>
+
+                    <option value="0">
+                        No
+                    </option>
+
+                </select>
+
+                <!-- BUTTON -->
+
+                <button type="submit">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    Predict Price
+
+                </button>
+
+            </form>
+
+            <!-- RESULT -->
+
+            <div class="result-box">
+
+                <h2>
+
+                    {{ prediction_text }}
+
+                </h2>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FEATURED PROPERTIES -->
+
+    <section
+        class="properties-section"
+        id="properties"
+    >
+
+        <h1>
+            Featured Properties
+        </h1>
+
+        <div class="properties-grid">
+
+            <!-- PROPERTY 1 -->
+
+            <div class="property-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1568605114967-8130f3a36994"
+                    alt="House"
+                >
+
+                <div class="property-info">
+
+                    <h2>
+                        Luxury Villa
+                    </h2>
+
+                    <p>
+                        Hyderabad
+                    </p>
+
+                    <h3>
+                        ₹ 1.2 Cr
+                    </h3>
+
+                </div>
+
+            </div>
+
+            <!-- PROPERTY 2 -->
+
+            <div class="property-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+                    alt="House"
+                >
+
+                <div class="property-info">
+
+                    <h2>
+                        Modern Apartment
+                    </h2>
+
+                    <p>
+                        Bangalore
+                    </p>
+
+                    <h3>
+                        ₹ 85 Lakhs
+                    </h3>
+
+                </div>
+
+            </div>
+
+            <!-- PROPERTY 3 -->
+
+            <div class="property-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1600585154526-990dced4db0d"
+                    alt="House"
+                >
+
+                <div class="property-info">
+
+                    <h2>
+                        Beach House
+                    </h2>
+
+                    <p>
+                        Vizag
+                    </p>
+
+                    <h3>
+                        ₹ 95 Lakhs
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer
+        class="footer"
+        id="contact"
+    >
+
+        <h2>
+            DreamHome AI
+        </h2>
+
+        <p>
+            Inspired by Housing.com & 99acres
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
